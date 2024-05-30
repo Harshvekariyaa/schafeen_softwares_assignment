@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:schafeen_softwares_assignment/views/mediaSection.dart';
-import 'package:schafeen_softwares_assignment/views/memberSection.dart';
-
 import 'views/bottomSheetContent.dart';
 import 'views/profileSection.dart';
 
@@ -15,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
 
@@ -43,6 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
 
       body: CustomScrollView(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+
         slivers: <Widget>[
             SliverAppBar(
               expandedHeight: 300.0,
@@ -73,72 +74,65 @@ class _MyHomePageState extends State<MyHomePage> {
                         stretchModes: [
                           StretchMode.zoomBackground,
                         ],
-                        background: Image.asset('assets/images/theweekend.png', fit: BoxFit.fill,),
-                      ),
-                    ),
-                    Container(
-                      color: Colors.red,
-                      height: MediaQuery.of(context).size.height * 0.12,
-                      width: double.infinity,
-                      child: FlexibleSpaceBar(
-                        centerTitle: true,
-                        title: AnimatedOpacity(
-                            opacity: top == kToolbarHeight ? 1.0 : 0.0,
-                            duration: Duration(milliseconds: 400),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text("THE WEEKEND",style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Colors.white),),
-                                      Text("Community - 1K+ Members",style: TextStyle(fontSize: 17, color: Colors.white70)),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: IconButton(onPressed: (){}, icon: Icon(Icons.share,color: Colors.white,)),
-                                )
-                              ],
+                        background: Column(
+                          children: [
+                            Container(
+                               height: MediaQuery.of(context).size.height * 0.3,
+                              width: double.infinity,
+                              child: Image.asset('assets/images/theweekend.png', fit: BoxFit.fill,),
                             ),
+                            Container(
+                              color: Colors.red,
+                              height: MediaQuery.of(context).size.height * 0.12,
+                              width: double.infinity,
+                              child:  Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("THE WEEKEND",style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Colors.white),),
+                                        Text("Community - 1K+ Members",style: TextStyle(fontSize: 17, color: Colors.white70)),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: IconButton(onPressed: (){}, icon: Icon(Icons.share,color: Colors.white,)),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-
                       ),
                     ),
+
                   ],);
                 },
               ),
             ),
 
-
             SliverAppBar(
               backgroundColor: Colors.white70,
               elevation: 0,
               pinned: true,
-              bottom: PreferredSize(preferredSize: Size.fromHeight(500.0), child: SizedBox()),
+              bottom: PreferredSize(preferredSize: Size.fromHeight(1000.0), child: SizedBox()),
               flexibleSpace: ProfileSection(),
             ),
 
 
-            SliverAppBar(
-              backgroundColor: Colors.redAccent.shade200,
-              elevation: 0,
-              pinned: true,
-              bottom: PreferredSize(preferredSize: Size.fromHeight(500.0), child: SizedBox()),
-              flexibleSpace: MediaSection(),
-            ),
-            SliverAppBar(
-              backgroundColor: Colors.redAccent.shade200,
-              elevation: 0,
-              pinned: true,
-              bottom: PreferredSize(preferredSize: Size.fromHeight(500.0), child: SizedBox()),
-              flexibleSpace: MemberSection(),
-            ),
 
+            // SliverAppBar(
+            //   backgroundColor: Colors.redAccent.shade200,
+            //   elevation: 0,
+            //   pinned: true,
+            //   bottom: PreferredSize(preferredSize: Size.fromHeight(400.0), child: SizedBox()),
+            //   flexibleSpace: MemberSection(),
+            // ),
         ],
       ),
     );

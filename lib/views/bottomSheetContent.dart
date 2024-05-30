@@ -6,22 +6,22 @@ class BottomSheetContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16.0),
-      height: 200,
-      width: MediaQuery.of(context).size.width * 0.6,
+      height: 250,
+      width: MediaQuery.of(context).size.width * 0.7,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextButton(
             onPressed: () {},
-            child: ListTile(title: Text('Invite')),
+            child: ListTile(title: Text('Invite'),leading: Icon(Icons.link,size: 20,),),
           ),
           TextButton(
             onPressed: () {},
-            child: ListTile(title: Text('Add member')),
+            child: ListTile(title: Text('Add member'),leading: Icon(Icons.person_add,size: 20,),),
           ),
           TextButton(
             onPressed: () {},
-            child: ListTile(title: Text('Add Group')),
+            child: ListTile(title: Text('Add Group'),leading: Icon(Icons.people,size: 20,),),
           ),
         ],
       ),
