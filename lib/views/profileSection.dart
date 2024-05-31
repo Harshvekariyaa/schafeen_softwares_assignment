@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 import 'mediaSection.dart';
-import 'memberSection.dart';
 import 'profileSection_outlinebutton.dart';
 
 class ProfileSection extends StatelessWidget {
@@ -19,7 +18,9 @@ class ProfileSection extends StatelessWidget {
             lessStyle: TextStyle(color: Colors.red, fontSize: 16),
             moreStyle: TextStyle(color: Colors.blue, fontSize: 16),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           Container(
             height: 30,
             padding: EdgeInsets.all(5),
@@ -30,9 +31,12 @@ class ProfileSection extends StatelessWidget {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               // physics: NeverScrollableScrollPhysics(),
-              itemCount: 10, separatorBuilder: (BuildContext context, int index) {
-                return SizedBox(width: 5,);
-            },
+              itemCount: 10,
+              separatorBuilder: (BuildContext context, int index) {
+                return SizedBox(
+                  width: 5,
+                );
+              },
             ),
           ),
           MediaSection(),

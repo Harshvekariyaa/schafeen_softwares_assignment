@@ -21,23 +21,24 @@ class _MemberSectionState extends State<MemberSection> {
           backgroundColor: Colors.white70,
           title: custText,
           actions: <Widget>[
-            IconButton(onPressed: (){
-              setState(() {
-                if(this.custIcon.icon == Icons.search){
-                  this.custIcon = Icon(Icons.cancel);
-                  this.custText = TextField(
-                    style: TextStyle(
-                      fontSize: 20,
-                      backgroundColor: Colors.white70,
-                    ),
-
-                  );
-                }else{
-                  this.custIcon = Icon(Icons.search);
-                  this.custText = Text("Member");
-                }
-              });
-            }, icon: custIcon),
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    if (this.custIcon.icon == Icons.search) {
+                      this.custIcon = Icon(Icons.cancel);
+                      this.custText = TextField(
+                        style: TextStyle(
+                          fontSize: 20,
+                          backgroundColor: Colors.white70,
+                        ),
+                      );
+                    } else {
+                      this.custIcon = Icon(Icons.search);
+                      this.custText = Text("Member");
+                    }
+                  });
+                },
+                icon: custIcon),
           ],
         ),
         Container(

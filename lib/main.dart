@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -39,23 +38,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: CustomScrollView(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-
         slivers: <Widget>[
-            SliverAppBar(
-              expandedHeight: 300.0,
-              floating: false,
-              pinned: true,
-              elevation: 0,
-              flexibleSpace: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  var top = constraints.biggest.height;
-                  return Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
+          SliverAppBar(
+            expandedHeight: 300.0,
+            floating: false,
+            pinned: true,
+            elevation: 0,
+            flexibleSpace: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                var top = constraints.biggest.height;
+                return Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
                     Container(
                       color: Colors.red,
                       child: FlexibleSpaceBar(
@@ -64,44 +61,92 @@ class _MyHomePageState extends State<MyHomePage> {
                             opacity: top == kToolbarHeight ? 1.0 : 0.0,
                             duration: Duration(milliseconds: 400),
                             child: ListTile(
-                              title: Text("THE WEEKEND",style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Colors.white),),
-                              leading: CircleAvatar(radius: 25,backgroundImage: AssetImage("assets/images/theweekend.png")),
-                              subtitle: Text("Community - 1K+ Members",style: TextStyle(fontSize: 14, color: Colors.white70)),
-                              trailing: CircleAvatar(backgroundColor: Colors.red.shade800,
-                                  child: IconButton(icon: Icon(Icons.more_vert,color: Colors.white,),onPressed: () { showModalBottomSheet(shape: Border.symmetric(vertical: BorderSide(width: 2,color: Colors.white),horizontal: BorderSide(width: 5,color: Colors.white)),context: context, builder: (context) => BottomSheetContent(),); },)),
-                            )
-                        ),
+                              title: Text(
+                                "THE WEEKEND",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage: AssetImage(
+                                      "assets/images/theweekend.png")),
+                              subtitle: Text("Community - 1K+ Members",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.white70)),
+                              trailing: CircleAvatar(
+                                  backgroundColor: Colors.red.shade800,
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.more_vert,
+                                      color: Colors.white,
+                                    ),
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                        shape: Border.symmetric(
+                                            vertical: BorderSide(
+                                                width: 2, color: Colors.white),
+                                            horizontal: BorderSide(
+                                                width: 5, color: Colors.white)),
+                                        context: context,
+                                        builder: (context) =>
+                                            BottomSheetContent(),
+                                      );
+                                    },
+                                  )),
+                            )),
                         stretchModes: [
                           StretchMode.zoomBackground,
                         ],
                         background: Column(
                           children: [
                             Container(
-                               height: MediaQuery.of(context).size.height * 0.3,
+                              height: MediaQuery.of(context).size.height * 0.3,
                               width: double.infinity,
-                              child: Image.asset('assets/images/theweekend.png', fit: BoxFit.fill,),
+                              child: Image.asset(
+                                'assets/images/theweekend.png',
+                                fit: BoxFit.fill,
+                              ),
                             ),
                             Container(
                               color: Colors.red,
                               height: MediaQuery.of(context).size.height * 0.12,
                               width: double.infinity,
-                              child:  Row(
+                              child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10.0, vertical: 10),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        Text("THE WEEKEND",style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Colors.white),),
-                                        Text("Community - 1K+ Members",style: TextStyle(fontSize: 17, color: Colors.white70)),
+                                        Text(
+                                          "THE WEEKEND",
+                                          style: TextStyle(
+                                              fontSize: 24,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                        Text("Community - 1K+ Members",
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.white70)),
                                       ],
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: IconButton(onPressed: (){}, icon: Icon(Icons.share,color: Colors.white,)),
+                                    child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.share,
+                                          color: Colors.white,
+                                        )),
                                   )
                                 ],
                               ),
@@ -110,32 +155,22 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-
-                  ],);
-                },
-              ),
+                  ],
+                );
+              },
             ),
+          ),
 
-            SliverAppBar(
-              backgroundColor: Colors.white70,
-              elevation: 0,
-              pinned: true,
-              bottom: PreferredSize(preferredSize: Size.fromHeight(1000.0), child: SizedBox()),
-              flexibleSpace: ProfileSection(),
-            ),
-
-
-
-            // SliverAppBar(
-            //   backgroundColor: Colors.redAccent.shade200,
-            //   elevation: 0,
-            //   pinned: true,
-            //   bottom: PreferredSize(preferredSize: Size.fromHeight(400.0), child: SizedBox()),
-            //   flexibleSpace: MemberSection(),
-            // ),
+          SliverAppBar(
+            backgroundColor: Colors.white70,
+            elevation: 0,
+            pinned: true,
+            bottom: PreferredSize(
+                preferredSize: Size.fromHeight(1000.0), child: SizedBox()),
+            flexibleSpace: ProfileSection(),
+          ),
         ],
       ),
     );
-
   }
 }
